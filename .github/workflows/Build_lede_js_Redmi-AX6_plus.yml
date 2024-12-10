@@ -8,7 +8,8 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build lede(js版) Redmi-AX6 plus
+#name: Build lede(js版) Redmi-AX6 plus
+name: Build lede(js版) XioaoMi-AX3600 plus
 
 on:
   repository_dispatch:
@@ -42,8 +43,10 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Redmi-AX6_plus(lede_js)
-  PRODUCT_NAME: Redmi-AX6-plus
+  #FILE_NAME: Redmi-AX6_plus(lede_js)
+  FILE_NAME: XioaoMi-AX3600_plus(lede_js)
+  #PRODUCT_NAME: Redmi-AX6-plus
+  PRODUCT_NAME: XioaoMi-AX3600-plus
 
 jobs:
   build:
@@ -214,7 +217,7 @@ jobs:
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
-         #### Redmi-AX6(合并分区) lede（js版luci） 固件配置：
+         #### XioaoMi-AX3600(合并分区) lede（js版luci） 固件配置：
             - IP:192.168.123.1
             - WEB登陆账户：root
             - 密码：password
@@ -229,7 +232,8 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
-        delete_workflow_pattern: Build lede(js版) Redmi-AX6 plus
+        #delete_workflow_pattern: Build lede(js版) Redmi-AX6 plus
+        delete_workflow_pattern: Build lede(js版) XioaoMi-AX3600 plus
         retain_days: 30
         keep_minimum_runs: 10
 
@@ -239,7 +243,8 @@ jobs:
       with:
         #repo:
         keep_latest: 10
-        delete_tag_pattern: Redmi-AX6_plus(lede_js)
+        #delete_tag_pattern: Redmi-AX6_plus(lede_js)
+        delete_tag_pattern: XioaoMi-AX3600_plus(lede_js)
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
