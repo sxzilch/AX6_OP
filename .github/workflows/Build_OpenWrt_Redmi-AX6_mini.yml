@@ -8,7 +8,8 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build lede(lua版) Redmi-AX6 mini
+#name: Build lede(lua版) Redmi-AX6 mini
+name: Build lede(lua版) XioaoMi-AX3600 mini
 
 on:
   repository_dispatch:
@@ -210,7 +211,8 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
-        delete_workflow_pattern: Build lede(lua版) Redmi-AX6 mini
+        #delete_workflow_pattern: Build lede(lua版) Redmi-AX6 mini
+        delete_workflow_pattern: Build lede(lua版) XioaoMi-AX3600 mini
         retain_days: 30
         keep_minimum_runs: 10
 
@@ -220,7 +222,8 @@ jobs:
       with:
         #repo:
         keep_latest: 10
-        delete_tag_pattern: Redmi-AX6_mini(lede_lua)
+        #delete_tag_pattern: Redmi-AX6_mini(lede_lua)
+        delete_tag_pattern: XioaoMi-AX3600_mini(lede_lua)
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
